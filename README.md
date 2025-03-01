@@ -81,8 +81,55 @@ What is an Abstract Data Type and why are they worth learning about?
 
 ### Response 3
 
+An Abstract Data Type (ADT) is a theoretical concept in computer science that defines a data type based on its functionality and operations that can be performed on it. ADT essentially describes what a data type can do, not how it does it, providing a user-friendly interface to interact with the data. It is important to learn about ADTs because of the following reasons:
+
+1. Efficiency and Performance: Different implementations of an ADTs can optimize performance for specific use cases. For example, an array-based list is fast for accessing elements by index, while a linked list may be more efficient for inserting or deleting elements.
+
+2. Design Flexibility: ADTs allow developers to design more modular and flexible systems. Since the implementation is separate from the interface, a programmer can switch between different implementations (e.g., switching from an array to a linked list) without changing the code that uses the ADT.
+
+3. Reusability and Maintainability: Using ADTs encourages writing reusable and maintainable code.
+
+4. Foundation for Data Structures: Many common data structures (like lists, stacks, queues, trees, and graphs) are based on ADTs. Understanding them provides a strong foundation for mastering more complex algorithms and systems.
+
+5. Problem-Solving Skills: Learning about ADTs helps develop problem-solving skills by forcing you to think in terms of the abstract behavior of data and how best to manage and manipulate that data efficiently.
+
 ## Prompt 4
 
 A few classic problems involving a stack are the `isBalanced` and `isPalindrome` functions. Choose one of these functions and provide a solution to it along with a brief lesson explaining how it works.
 
 ### Response 4
+
+### What is a Palindrome?
+
+A palindrome is a word, phrase, number, or sequence that reads the same forward and backward. It should remain the same when reversed. Examples are: `'racecar'`, `'madam'`, `'12321'`, `'Was it a car or a cat I saw?'`, etc.
+
+### Why Use a Stack for Palindrome Checking?
+
+A stack follows the Last-In, First-Out (LIFO) method.
+
+1. We push each character of the string onto a stack.
+2. Then as we traverse the string again we pop characters from the stack and compare them with the original characters.
+3. If all characters match, the string is a palindrome; otherwise it is not.
+
+```js
+const isPalindrome = (inputString) => {
+  let stack = [];
+
+  // Traversing through all characters of the inputString
+  // And pushing all characters to stack
+  for (let char of inputString) {
+    stack.push(char);
+  }
+
+  // Traversing through a string again
+  // And comparing original characters with popped stack values
+  for (let char of inputString) {
+    if (char !== stack.pop()) {
+      // if characters don't match return false
+      return false;
+    }
+  }
+  // if they match return true
+  return true;
+};
+```
